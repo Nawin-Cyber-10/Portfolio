@@ -126,7 +126,7 @@ export default function ContactForm() {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="space-y-6 bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700 shadow-xl hover:border-emerald-500/50 transition-all duration-300"
+        className="space-y-6 bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700 shadow-xl hover:border-purple-500/50 transition-all duration-300 purple-glow-hover"
       >
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-gray-300">
@@ -138,7 +138,7 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="bg-gray-900/80 border-gray-700 focus:border-emerald-500"
+            className="bg-gray-900/80 border-gray-700 focus:border-purple-500"
           />
           {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
         </div>
@@ -154,7 +154,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your email address"
-            className="bg-gray-900/80 border-gray-700 focus:border-emerald-500"
+            className="bg-gray-900/80 border-gray-700 focus:border-purple-500"
           />
           {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
         </div>
@@ -169,7 +169,7 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             placeholder="Subject of your message"
-            className="bg-gray-900/80 border-gray-700 focus:border-emerald-500"
+            className="bg-gray-900/80 border-gray-700 focus:border-purple-500"
           />
         </div>
 
@@ -183,7 +183,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Your message"
-            className="min-h-[120px] bg-gray-900/80 border-gray-700 focus:border-emerald-500"
+            className="min-h-[120px] bg-gray-900/80 border-gray-700 focus:border-purple-500"
           />
           {formErrors.message && <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>}
         </div>
@@ -191,7 +191,7 @@ export default function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+          className="w-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40"
         >
           {isSubmitting ? (
             <>

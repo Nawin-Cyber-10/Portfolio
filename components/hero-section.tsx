@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { Shield, Lock, Database, Server, Terminal } from "lucide-react"
+import { Shield, Lock, Database, Server, Terminal, Brain } from "lucide-react"
 import { TypeAnimation } from "react-type-animation"
 
 export default function HeroSection() {
@@ -35,7 +35,7 @@ export default function HeroSection() {
           ctx.fillStyle = "rgba(0, 0, 0, 0.05)"
           ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-          ctx.fillStyle = "#0f0"
+          ctx.fillStyle = "#a855f7"
           ctx.font = `${fontSize}px monospace`
 
           for (let i = 0; i < drops.length; i++) {
@@ -64,9 +64,9 @@ export default function HeroSection() {
 
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-purple-500/10 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-violet-500/10 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-indigo-500/10 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Floating icons */}
@@ -82,7 +82,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Shield className="h-12 w-12 text-emerald-500/30" />
+        <Shield className="h-12 w-12 text-purple-500/30" />
       </motion.div>
 
       <motion.div
@@ -97,7 +97,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Lock className="h-14 w-14 text-emerald-500/30" />
+        <Lock className="h-14 w-14 text-purple-500/30" />
       </motion.div>
 
       <motion.div
@@ -112,7 +112,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Database className="h-10 w-10 text-emerald-500/30" />
+        <Database className="h-10 w-10 text-purple-500/30" />
       </motion.div>
 
       <motion.div
@@ -127,7 +127,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Server className="h-12 w-12 text-emerald-500/30" />
+        <Server className="h-12 w-12 text-purple-500/30" />
       </motion.div>
 
       <motion.div
@@ -142,7 +142,22 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Terminal className="h-16 w-16 text-emerald-500/30" />
+        <Terminal className="h-16 w-16 text-purple-500/30" />
+      </motion.div>
+
+      <motion.div
+        className="absolute top-1/2 left-1/6"
+        animate={{
+          y: [0, -10, 0],
+          rotate: [0, -15, 0],
+        }}
+        transition={{
+          duration: 5.5,
+          repeat: Number.POSITIVE_INFINITY,
+          repeatType: "reverse",
+        }}
+      >
+        <Brain className="h-14 w-14 text-purple-500/30" />
       </motion.div>
 
       {/* Hero content */}
@@ -156,10 +171,10 @@ export default function HeroSection() {
             <img
               src="/images/profile.png"
               alt="Nawin Prasath"
-              className="w-32 h-32 rounded-full border-4 border-emerald-500 p-1 shadow-lg shadow-emerald-500/20"
+              className="w-32 h-32 rounded-full border-4 border-purple-500 p-1 shadow-lg shadow-purple-500/20 purple-glow"
             />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
             Nawin Prasath K
           </h1>
         </motion.div>
@@ -172,15 +187,15 @@ export default function HeroSection() {
         >
           <TypeAnimation
             sequence={[
-              "Cyber Security Engineer",
+              "AI Engineer",
               1000,
-              "AI Security Specialist",
+              "Cyber Security Specialist",
               1000,
-              "Penetration Tester",
+              "Prompt Engineering Expert",
               1000,
               "CTF Team Leader",
               1000,
-              "Cyber Security Instructor",
+              "Full-Stack Developer",
               1000,
               "NICC Coordinator",
               1000,
@@ -188,7 +203,7 @@ export default function HeroSection() {
             wrapper="h2"
             speed={50}
             repeat={Number.POSITIVE_INFINITY}
-            className="text-2xl md:text-3xl font-medium text-emerald-500"
+            className="text-2xl md:text-3xl font-medium text-purple-500"
           />
         </motion.div>
 
@@ -198,7 +213,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Securing digital landscapes with AI-powered solutions and educating the next generation of cyber defenders
+            Transforming cybersecurity with AI innovation and crafting intelligent, responsive applications that solve
+            real-world challenges
           </p>
         </motion.div>
 
@@ -211,7 +227,7 @@ export default function HeroSection() {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 border-none shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300"
+            className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 border-none shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300"
           >
             <Link href="#projects">View Projects</Link>
           </Button>
@@ -219,7 +235,7 @@ export default function HeroSection() {
             asChild
             size="lg"
             variant="outline"
-            className="border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white transition-all duration-300"
+            className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-300"
           >
             <Link href="#contact">Contact Me</Link>
           </Button>
@@ -227,7 +243,7 @@ export default function HeroSection() {
             asChild
             size="lg"
             variant="outline"
-            className="border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white transition-all duration-300"
+            className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-300"
           >
             <Link href="/resume">Resume</Link>
           </Button>

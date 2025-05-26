@@ -77,8 +77,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="#" className="flex items-center gap-2 group">
-          <Shield className="h-6 w-6 text-emerald-500 group-hover:text-cyan-400 transition-colors duration-300" />
-          <span className="font-bold text-xl group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-cyan-400 transition-all duration-300">
+          <Shield className="h-6 w-6 text-purple-500 group-hover:text-violet-400 transition-colors duration-300" />
+          <span className="font-bold text-xl group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 transition-all duration-300">
             Nawin Prasath
           </span>
         </Link>
@@ -89,8 +89,8 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`relative text-gray-300 hover:text-emerald-500 transition-colors ${
-                activeSection === link.id ? "text-emerald-500" : ""
+              className={`relative text-gray-300 hover:text-purple-500 transition-colors ${
+                activeSection === link.id ? "text-purple-500" : ""
               }`}
               onClick={closeMenu}
             >
@@ -98,7 +98,7 @@ export default function Navbar() {
               {activeSection === link.id && (
                 <motion.span
                   layoutId="activeSection"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -106,7 +106,7 @@ export default function Navbar() {
           ))}
           <Button
             asChild
-            className="bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 transition-all duration-300"
+            className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 transition-all duration-300"
           >
             <Link href="/resume">Resume</Link>
           </Button>
@@ -133,8 +133,8 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-gray-300 hover:text-emerald-500 py-2 transition-colors ${
-                    activeSection === link.id ? "text-emerald-500" : ""
+                  className={`text-gray-300 hover:text-purple-500 py-2 transition-colors ${
+                    activeSection === link.id ? "text-purple-500" : ""
                   }`}
                   onClick={closeMenu}
                 >
@@ -143,7 +143,7 @@ export default function Navbar() {
               ))}
               <Button
                 asChild
-                className="bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 mt-2"
+                className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 mt-2"
               >
                 <Link href="/resume">Resume</Link>
               </Button>
