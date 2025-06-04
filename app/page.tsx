@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Github, Linkedin, Mail, Shield, Lock, Database, Server, FileCode, Code, Brain } from "lucide-react"
+import { Github, Linkedin, Mail, Shield, Lock, Database, Server, FileCode, Brain, Search } from "lucide-react"
 import HeroSection from "@/components/hero-section"
 import ProjectCard from "@/components/project-card"
 import ExperienceCard from "@/components/experience-card"
@@ -17,53 +17,55 @@ import CTFSection from "@/components/ctf-section"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-purple-950/20 to-gray-900 text-white relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 text-slate-900 relative overflow-hidden">
       <ParticleBackground />
 
       <HeroSection />
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">About Me</span>
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">About Me</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-slate-700 leading-relaxed">
               Innovative AI Engineer with a strong foundation in cybersecurity and deep expertise in prompt engineering,
               machine learning, and intelligent web application development. Skilled in leveraging modern AI tools and
               LLMs to build scalable, secure, and automated systems. Adept at integrating AI-driven solutions into web
-              platforms, optimizing performance, and enhancing threat detection capabilities. Experienced in Python and
-              full-stack development. Passionate about transforming cybersecurity with AI innovation and crafting
-              intelligent, responsive applications that solve real-world challenges.
+              platforms, optimizing performance, and enhancing threat detection capabilities.
+            </p>
+            <p className="text-lg text-slate-700 leading-relaxed">
+              Experienced in Python and full-stack development. Passionate about transforming cybersecurity with AI
+              innovation and crafting intelligent, responsive applications that solve real-world challenges.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Badge className="bg-purple-600 hover:bg-purple-700">AI Engineering</Badge>
-              <Badge className="bg-violet-600 hover:bg-violet-700">Cyber Security</Badge>
-              <Badge className="bg-indigo-600 hover:bg-indigo-700">Prompt Engineering</Badge>
-              <Badge className="bg-purple-700 hover:bg-purple-800">Machine Learning</Badge>
-              <Badge className="bg-violet-700 hover:bg-violet-800">Full-Stack Development</Badge>
+              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">AI Engineering</Badge>
+              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">Cyber Security</Badge>
+              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">Prompt Engineering</Badge>
+              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">Machine Learning</Badge>
+              <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200">Full-Stack Development</Badge>
             </div>
             <div className="flex gap-4">
               <Button
                 asChild
                 variant="outline"
-                className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white"
+                className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
               >
                 <Link href="/resume">View Resume</Link>
               </Button>
-              <Button asChild variant="default" className="bg-purple-600 hover:bg-purple-700">
+              <Button asChild className="btn-professional">
                 <Link href="#contact">Contact Me</Link>
               </Button>
             </div>
           </div>
           <div className="flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <div className="absolute inset-0 rounded-full bg-purple-500/20 animate-pulse-purple"></div>
+              <div className="absolute inset-0 rounded-full bg-blue-100 animate-pulse"></div>
               <img
                 src="/images/profile.png"
                 alt="Nawin Prasath"
-                className="rounded-full w-full h-full object-cover border-4 border-purple-500 p-1 purple-glow"
+                className="rounded-full w-full h-full object-cover border-4 border-blue-500 p-1 shadow-blue-glow"
               />
             </div>
           </div>
@@ -71,9 +73,12 @@ export default function Home() {
       </section>
 
       {/* Leadership & Roles Section */}
-      <section id="leadership" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-gray-900/50 relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+      <section
+        id="leadership"
+        className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-white/50 backdrop-blur-sm relative z-10"
+      >
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             Leadership & Roles
           </span>
         </h2>
@@ -82,8 +87,8 @@ export default function Home() {
 
       {/* Teaching & Education Outreach */}
       <section id="teaching" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             Cyber Security Education
           </span>
         </h2>
@@ -91,9 +96,12 @@ export default function Home() {
       </section>
 
       {/* CTF Experience */}
-      <section id="ctf" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-gray-900/50 relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+      <section
+        id="ctf"
+        className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-white/50 backdrop-blur-sm relative z-10"
+      >
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             CTF Experience
           </span>
         </h2>
@@ -102,16 +110,20 @@ export default function Home() {
 
       {/* Experience & Education Section */}
       <section id="experience" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             Experience & Education
           </span>
         </h2>
 
         <Tabs defaultValue="experience" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education & Certifications</TabsTrigger>
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 bg-blue-50">
+            <TabsTrigger value="experience" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+              Experience
+            </TabsTrigger>
+            <TabsTrigger value="education" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+              Education & Certifications
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="experience" className="space-y-6">
@@ -151,83 +163,83 @@ export default function Home() {
           </TabsContent>
 
           <TabsContent value="education" className="space-y-6">
-            <Card className="bg-gray-800 border-gray-700">
+            <Card className="bg-white border-slate-200 shadow-sm card-hover">
               <CardHeader>
-                <CardTitle>B.E CSE Cyber Security</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardTitle className="text-slate-800">B.E CSE Cyber Security</CardTitle>
+                <CardDescription className="text-slate-600">
                   KSR Institute for Engineering and Technology
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-300">2022 – 2026 | Tiruchengode</p>
-                <p className="text-gray-300">CGPA - 8.03</p>
+                <p className="text-slate-700">2022 – 2026 | Tiruchengode</p>
+                <p className="text-slate-700">CGPA - 8.03</p>
               </CardContent>
             </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-white border-slate-200 shadow-sm card-hover">
                 <CardHeader>
-                  <CardTitle className="text-lg">Certifications</CardTitle>
+                  <CardTitle className="text-lg text-slate-800">Certifications</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <Shield className="h-5 w-5 text-purple-500 mt-1" />
+                    <Shield className="h-5 w-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="font-medium">Certified in Cyber Security</p>
-                      <p className="text-sm text-gray-400">ISC2</p>
+                      <p className="font-medium text-slate-800">Certified in Cyber Security</p>
+                      <p className="text-sm text-slate-600">ISC2</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Database className="h-5 w-5 text-purple-500 mt-1" />
+                    <Database className="h-5 w-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="font-medium">MongoDB Associate Python Developer</p>
-                      <p className="text-sm text-gray-400">MongoDB University</p>
+                      <p className="font-medium text-slate-800">MongoDB Associate Python Developer</p>
+                      <p className="text-sm text-slate-600">MongoDB University</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-5 w-5 text-purple-500 mt-1" />
+                    <Shield className="h-5 w-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="font-medium">Zscaler Zero Trust Associate (ZTCA)</p>
-                      <p className="text-sm text-gray-400">Zscaler</p>
+                      <p className="font-medium text-slate-800">Zscaler Zero Trust Associate (ZTCA)</p>
+                      <p className="text-sm text-slate-600">Zscaler</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Server className="h-5 w-5 text-purple-500 mt-1" />
+                    <Server className="h-5 w-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="font-medium">ISO/IEC 27001 Information Security Associate™</p>
-                      <p className="text-sm text-gray-400">SkillFront</p>
+                      <p className="font-medium text-slate-800">ISO/IEC 27001 Information Security Associate™</p>
+                      <p className="text-sm text-slate-600">SkillFront</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Server className="h-5 w-5 text-purple-500 mt-1" />
+                    <Server className="h-5 w-5 text-blue-600 mt-1" />
                     <div>
-                      <p className="font-medium">Plesk Obsidian Professional</p>
-                      <p className="text-sm text-gray-400">Plesk University</p>
+                      <p className="font-medium text-slate-800">Plesk Obsidian Professional</p>
+                      <p className="text-sm text-slate-600">Plesk University</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gray-800 border-gray-700">
+              <Card className="bg-white border-slate-200 shadow-sm card-hover">
                 <CardHeader>
-                  <CardTitle className="text-lg">Courses</CardTitle>
+                  <CardTitle className="text-lg text-slate-800">Courses</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <FileCode className="h-5 w-5 text-purple-500 mt-1" />
-                    <p>Python Developer, JetBrains Academy</p>
+                    <FileCode className="h-5 w-5 text-blue-600 mt-1" />
+                    <p className="text-slate-700">Python Developer, JetBrains Academy</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-5 w-5 text-purple-500 mt-1" />
-                    <p>Jr. Cyber Security Analyst-Career Path, Cisco</p>
+                    <Shield className="h-5 w-5 text-blue-600 mt-1" />
+                    <p className="text-slate-700">Jr. Cyber Security Analyst-Career Path, Cisco</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-5 w-5 text-purple-500 mt-1" />
-                    <p>Mastering Network Intrusion Defense, EC-Council</p>
+                    <Shield className="h-5 w-5 text-blue-600 mt-1" />
+                    <p className="text-slate-700">Mastering Network Intrusion Defense, EC-Council</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Shield className="h-5 w-5 text-purple-500 mt-1" />
-                    <p>Palo Alto Cyber Security V6, Palo Alto Academy</p>
+                    <Shield className="h-5 w-5 text-blue-600 mt-1" />
+                    <p className="text-slate-700">Palo Alto Cyber Security V6, Palo Alto Academy</p>
                   </div>
                 </CardContent>
               </Card>
@@ -237,53 +249,54 @@ export default function Home() {
       </section>
 
       {/* Achievements Timeline */}
-      <section id="achievements" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-gray-900/50 relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
-            Achievements
-          </span>
+      <section
+        id="achievements"
+        className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-white/50 backdrop-blur-sm relative z-10"
+      >
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Achievements</span>
         </h2>
         <AchievementsTimeline />
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             Featured Projects
           </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ProjectCard
             title="Exploit Dojo"
-            description="Built 'Exploit Dojo', a full-stack CTF platform with 200+ challenges (Web, Crypto, Forensics, Pwn) and AI-assisted hints, dynamic scoring, and user progress tracking. Designed a responsive UI with animated learning paths, secure user authentication, and an admin panel for course and challenge management."
-            tags={["AI-Enhanced", "Full-Stack", "CTF Platform", "React", "Node.js"]}
-            icon={<Brain className="h-10 w-10 text-purple-500" />}
+            description="Built 'Exploit Dojo', a comprehensive full-stack CTF platform with 200+ challenges across Web, Crypto, Forensics, and Pwn categories. Features AI-assisted hints, dynamic scoring system, user progress tracking, and an intuitive learning path interface."
+            tags={["AI-Enhanced", "Full-Stack", "CTF Platform", "React", "Node.js", "MongoDB"]}
+            icon={<Brain className="h-10 w-10 text-blue-600" />}
             link="https://github.com/Nawin-Cyber-10/Exploit-Dojo"
           />
 
           <ProjectCard
-            title="Ransomware Simulator"
-            description="Developed a simulated ransomware tool in a controlled environment to demonstrate real-world ransomware behaviors, including file encryption, ransom note deployment, and user lockout mechanisms."
-            tags={["Python", "Malware Analysis", "Ethical Hacking"]}
-            icon={<Lock className="h-10 w-10 text-purple-500" />}
-            link="https://github.com/Nawin-Cyber-10/Ransomware_Simulator"
+            title="Web Raptor"
+            description="Developed Web Raptor, a comprehensive reconnaissance tool for cybersecurity professionals. Features automated subdomain enumeration, port scanning, vulnerability detection, and detailed reporting capabilities for penetration testing workflows."
+            tags={["Reconnaissance", "Python", "Security Tools", "Automation", "Pentesting"]}
+            icon={<Search className="h-10 w-10 text-blue-600" />}
+            link="https://github.com/Nawin-Cyber-10/Web-Raptor"
           />
 
           <ProjectCard
-            title="Cipher Decoder"
-            description="Developed a Python-based encryption and decryption application supporting multiple classical cryptographic algorithms for educational and data obfuscation purposes."
-            tags={["Python", "Cryptography", "Information Security"]}
-            icon={<Code className="h-10 w-10 text-purple-500" />}
-            link="https://github.com/Nawin-Cyber-10/File_Encryptor"
+            title="Ransomware Simulator"
+            description="Developed a simulated ransomware tool in a controlled environment to demonstrate real-world ransomware behaviors, including file encryption, ransom note deployment, and user lockout mechanisms for educational purposes."
+            tags={["Python", "Malware Analysis", "Ethical Hacking", "Education"]}
+            icon={<Lock className="h-10 w-10 text-blue-600" />}
+            link="https://github.com/Nawin-Cyber-10/Ransomware_Simulator"
           />
         </div>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             Skills & Expertise
           </span>
         </h2>
@@ -291,22 +304,23 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-gray-900/50 relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
-            Get In Touch
-          </span>
+      <section
+        id="contact"
+        className="py-20 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto bg-white/50 backdrop-blur-sm relative z-10"
+      >
+        <h2 className="text-3xl font-bold mb-8 text-center text-slate-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">Get In Touch</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
+              <h3 className="text-xl font-semibold mb-4 text-slate-800">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-purple-500" />
+                  <Mail className="h-5 w-5 text-blue-600" />
                   <a
                     href="mailto:heyitsmenawin010@gmail.com"
-                    className="text-gray-300 hover:text-purple-500 transition-colors"
+                    className="text-slate-700 hover:text-blue-600 transition-colors"
                   >
                     heyitsmenawin010@gmail.com
                   </a>
@@ -314,7 +328,7 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-purple-500"
+                    className="h-5 w-5 text-blue-600"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -324,12 +338,12 @@ export default function Home() {
                   >
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                   </svg>
-                  <span className="text-gray-300">81220 02205</span>
+                  <span className="text-slate-700">81220 02205</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-purple-500"
+                    className="h-5 w-5 text-blue-600"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -340,19 +354,19 @@ export default function Home() {
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
-                  <span className="text-gray-300">Tiruchengode</span>
+                  <span className="text-slate-700">Tiruchengode</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-4">Connect With Me</h3>
+              <h3 className="text-xl font-semibold mb-4 text-slate-800">Connect With Me</h3>
               <div className="flex gap-4">
                 <a
                   href="https://github.com/Nawin-Cyber-10"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-800 p-3 rounded-full hover:bg-purple-600 transition-colors hover:scale-110 transform duration-300 purple-glow-hover"
+                  className="bg-white p-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors hover:scale-110 transform duration-300 shadow-sm border border-slate-200"
                 >
                   <Github className="h-5 w-5" />
                 </a>
@@ -360,13 +374,13 @@ export default function Home() {
                   href="https://www.linkedin.com/in/nawin10"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-800 p-3 rounded-full hover:bg-purple-600 transition-colors hover:scale-110 transform duration-300 purple-glow-hover"
+                  className="bg-white p-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors hover:scale-110 transform duration-300 shadow-sm border border-slate-200"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
                   href="mailto:heyitsmenawin010@gmail.com"
-                  className="bg-gray-800 p-3 rounded-full hover:bg-purple-600 transition-colors hover:scale-110 transform duration-300 purple-glow-hover"
+                  className="bg-white p-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors hover:scale-110 transform duration-300 shadow-sm border border-slate-200"
                 >
                   <Mail className="h-5 w-5" />
                 </a>

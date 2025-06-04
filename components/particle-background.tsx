@@ -27,10 +27,10 @@ export default function ParticleBackground() {
       constructor() {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
-        this.size = Math.random() * 3 + 1
-        this.speedX = (Math.random() - 0.5) * 0.5
-        this.speedY = (Math.random() - 0.5) * 0.5
-        this.color = `rgba(${Math.floor(Math.random() * 50) + 120}, ${Math.floor(Math.random() * 100) + 50}, ${Math.floor(Math.random() * 150) + 200}, ${Math.random() * 0.5 + 0.1})`
+        this.size = Math.random() * 2 + 1
+        this.speedX = (Math.random() - 0.5) * 0.3
+        this.speedY = (Math.random() - 0.5) * 0.3
+        this.color = `rgba(59, 130, 246, ${Math.random() * 0.3 + 0.1})`
       }
 
       update() {
@@ -65,7 +65,7 @@ export default function ParticleBackground() {
     // Initialize particles
     function initParticles() {
       particles = []
-      const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100)
+      const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 20000), 80)
 
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle())
@@ -74,7 +74,7 @@ export default function ParticleBackground() {
 
     // Connect particles with lines
     function connectParticles() {
-      const maxDistance = 150
+      const maxDistance = 120
 
       for (let i = 0; i < particles.length; i++) {
         for (let j = i; j < particles.length; j++) {
@@ -84,7 +84,7 @@ export default function ParticleBackground() {
 
           if (distance < maxDistance) {
             const opacity = 1 - distance / maxDistance
-            ctx.strokeStyle = `rgba(168, 85, 247, ${opacity * 0.2})`
+            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.15})`
             ctx.lineWidth = 1
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
@@ -119,5 +119,5 @@ export default function ParticleBackground() {
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
+  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-60" />
 }

@@ -7,12 +7,12 @@ export default function SkillsSection() {
   const skillCategories = [
     {
       title: "AI & Machine Learning",
-      icon: <Brain className="h-6 w-6 text-purple-500" />,
+      icon: <Brain className="h-6 w-6 text-blue-600" />,
       skills: ["AI Prompting", "Prompt Engineering", "Machine Learning", "AI Web Development", "LLM Integration"],
     },
     {
       title: "Cyber Security",
-      icon: <Shield className="h-6 w-6 text-purple-500" />,
+      icon: <Shield className="h-6 w-6 text-blue-600" />,
       skills: [
         "Penetration Testing",
         "Vulnerability Assessment",
@@ -23,17 +23,17 @@ export default function SkillsSection() {
     },
     {
       title: "Programming & Development",
-      icon: <Code className="h-6 w-6 text-purple-500" />,
+      icon: <Code className="h-6 w-6 text-blue-600" />,
       skills: ["Python Development", "Full-Stack Development", "JavaScript", "Bash Scripting", "MongoDB"],
     },
     {
-      title: "Networking & Infrastructure",
-      icon: <Network className="h-6 w-6 text-purple-500" />,
-      skills: ["Networking", "Firewalls", "VPNs", "Network Monitoring", "Packet Analysis"],
+      title: "Reconnaissance & Tools",
+      icon: <Search className="h-6 w-6 text-blue-600" />,
+      skills: ["Web Reconnaissance", "Subdomain Enumeration", "Port Scanning", "OSINT", "Automation"],
     },
     {
       title: "Cloud Security",
-      icon: <Cloud className="h-6 w-6 text-purple-500" />,
+      icon: <Cloud className="h-6 w-6 text-blue-600" />,
       skills: [
         "GCP Security",
         "Cloud Infrastructure",
@@ -44,7 +44,7 @@ export default function SkillsSection() {
     },
     {
       title: "Compliance & Standards",
-      icon: <FileCode className="h-6 w-6 text-purple-500" />,
+      icon: <FileCode className="h-6 w-6 text-blue-600" />,
       skills: ["ISO/IEC 27001", "GDPR", "Security Frameworks", "Risk Assessment", "Security Policies"],
     },
   ]
@@ -54,8 +54,8 @@ export default function SkillsSection() {
     { name: "AI Prompting & Engineering", level: 95 },
     { name: "Python Development", level: 90 },
     { name: "Penetration Testing", level: 88 },
+    { name: "Web Reconnaissance", level: 92 },
     { name: "Full-Stack Development", level: 85 },
-    { name: "Machine Learning", level: 82 },
   ]
 
   return (
@@ -69,19 +69,19 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 group purple-glow-hover"
+            className="bg-white border border-slate-200 rounded-lg p-6 hover:border-blue-300 transition-all duration-300 group card-hover shadow-sm"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gray-900/80 p-2 rounded-lg group-hover:bg-purple-500/20 transition-colors duration-300">
+              <div className="bg-blue-50 p-2 rounded-lg group-hover:bg-blue-100 transition-colors duration-300">
                 {category.icon}
               </div>
-              <h3 className="text-xl font-semibold">{category.title}</h3>
+              <h3 className="text-xl font-semibold text-slate-800">{category.title}</h3>
             </div>
             <ul className="space-y-2">
               {category.skills.map((skill, skillIndex) => (
                 <li key={skillIndex} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-purple-500"></span>
-                  <span className="text-gray-300">{skill}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
+                  <span className="text-slate-700">{skill}</span>
                 </li>
               ))}
             </ul>
@@ -95,23 +95,23 @@ export default function SkillsSection() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-gray-700 purple-glow"
+        className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm"
       >
-        <h3 className="text-xl font-semibold mb-6 text-center">Advanced Proficiencies</h3>
+        <h3 className="text-xl font-semibold mb-6 text-center text-slate-800">Advanced Proficiencies</h3>
         <div className="space-y-6">
           {advancedSkills.map((skill, index) => (
             <div key={index} className="space-y-2">
               <div className="flex justify-between">
-                <span>{skill.name}</span>
-                <span>{skill.level}%</span>
+                <span className="text-slate-800 font-medium">{skill.name}</span>
+                <span className="text-blue-600 font-semibold">{skill.level}%</span>
               </div>
-              <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
                   transition={{ duration: 1, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="h-full bg-gradient-to-r from-purple-500 to-violet-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full"
                 ></motion.div>
               </div>
             </div>
@@ -125,9 +125,9 @@ export default function SkillsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-gray-700"
+        className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm"
       >
-        <h3 className="text-xl font-semibold mb-6 text-center">Tools & Technologies</h3>
+        <h3 className="text-xl font-semibold mb-6 text-center text-slate-800">Tools & Technologies</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {[
             { name: "Python", icon: <Code className="h-5 w-5" /> },
@@ -147,10 +147,10 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="bg-gray-900/50 p-3 rounded-lg text-center flex flex-col items-center gap-2 hover:bg-gray-900 transition-colors duration-300 hover:border-purple-500/30 border border-transparent"
+              className="bg-slate-50 p-3 rounded-lg text-center flex flex-col items-center gap-2 hover:bg-blue-50 transition-colors duration-300 hover:border-blue-200 border border-transparent"
             >
-              <div className="text-purple-500">{tool.icon}</div>
-              <span className="text-sm">{tool.name}</span>
+              <div className="text-blue-600">{tool.icon}</div>
+              <span className="text-sm text-slate-700">{tool.name}</span>
             </motion.div>
           ))}
         </div>

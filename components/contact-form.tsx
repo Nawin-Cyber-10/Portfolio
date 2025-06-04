@@ -83,7 +83,6 @@ export default function ContactForm() {
 
     try {
       // Using EmailJS to send emails directly from the client
-      // You'll need to sign up at emailjs.com and get your service ID, template ID, and public key
       await emailjs.sendForm(
         "service_2d5d21v", // Replace with your EmailJS service ID
         "template_e36a5ob", // Replace with your EmailJS template ID
@@ -126,10 +125,10 @@ export default function ContactForm() {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="space-y-6 bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg border border-gray-700 shadow-xl hover:border-purple-500/50 transition-all duration-300 purple-glow-hover"
+        className="space-y-6 bg-white border border-slate-200 p-6 rounded-lg shadow-sm hover:border-blue-300 transition-all duration-300"
       >
         <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium text-gray-300">
+          <label htmlFor="name" className="text-sm font-medium text-slate-700">
             Name
           </label>
           <Input
@@ -138,13 +137,13 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="bg-gray-900/80 border-gray-700 focus:border-purple-500"
+            className="bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
           />
           {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-gray-300">
+          <label htmlFor="email" className="text-sm font-medium text-slate-700">
             Email
           </label>
           <Input
@@ -154,13 +153,13 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your email address"
-            className="bg-gray-900/80 border-gray-700 focus:border-purple-500"
+            className="bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
           />
           {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="subject" className="text-sm font-medium text-gray-300">
+          <label htmlFor="subject" className="text-sm font-medium text-slate-700">
             Subject
           </label>
           <Input
@@ -169,12 +168,12 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             placeholder="Subject of your message"
-            className="bg-gray-900/80 border-gray-700 focus:border-purple-500"
+            className="bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="message" className="text-sm font-medium text-gray-300">
+          <label htmlFor="message" className="text-sm font-medium text-slate-700">
             Message
           </label>
           <Textarea
@@ -183,16 +182,12 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Your message"
-            className="min-h-[120px] bg-gray-900/80 border-gray-700 focus:border-purple-500"
+            className="min-h-[120px] bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
           />
           {formErrors.message && <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>}
         </div>
 
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40"
-        >
+        <Button type="submit" disabled={isSubmitting} className="w-full btn-professional">
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -203,7 +198,7 @@ export default function ContactForm() {
           )}
         </Button>
 
-        <p className="text-xs text-gray-400 text-center mt-4">
+        <p className="text-xs text-slate-500 text-center mt-4">
           Your message will be sent directly to my email inbox. I'll respond as soon as possible.
         </p>
       </form>

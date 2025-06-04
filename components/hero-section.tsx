@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { Shield, Lock, Database, Server, Terminal, Brain } from "lucide-react"
+import { Shield, Lock, Database, Server, Terminal, Brain, Search } from "lucide-react"
 import { TypeAnimation } from "react-type-animation"
 
 export default function HeroSection() {
@@ -13,60 +13,15 @@ export default function HeroSection() {
 
   useEffect(() => {
     setIsVisible(true)
-
-    // Matrix effect for background
-    const canvas = document.getElementById("matrix-canvas") as HTMLCanvasElement
-    if (canvas) {
-      const ctx = canvas.getContext("2d")
-      if (ctx) {
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
-
-        const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
-        const fontSize = 14
-        const columns = canvas.width / fontSize
-
-        const drops: number[] = []
-        for (let i = 0; i < columns; i++) {
-          drops[i] = 1
-        }
-
-        const draw = () => {
-          ctx.fillStyle = "rgba(0, 0, 0, 0.05)"
-          ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-          ctx.fillStyle = "#a855f7"
-          ctx.font = `${fontSize}px monospace`
-
-          for (let i = 0; i < drops.length; i++) {
-            const text = chars[Math.floor(Math.random() * chars.length)]
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize)
-
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-              drops[i] = 0
-            }
-
-            drops[i]++
-          }
-        }
-
-        const matrixInterval = setInterval(draw, 33)
-
-        return () => clearInterval(matrixInterval)
-      }
-    }
   }, [])
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Matrix background */}
-      <canvas id="matrix-canvas" className="absolute inset-0 opacity-10 z-0"></canvas>
-
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-violet-500/10 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-indigo-500/10 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200/30 rounded-full filter blur-3xl animate-float"></div>
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-slate-200/30 rounded-full filter blur-3xl animate-float animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-blue-300/20 rounded-full filter blur-3xl animate-float animation-delay-4000"></div>
       </div>
 
       {/* Floating icons */}
@@ -82,7 +37,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Shield className="h-12 w-12 text-purple-500/30" />
+        <Shield className="h-12 w-12 text-blue-400/40" />
       </motion.div>
 
       <motion.div
@@ -97,7 +52,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Lock className="h-14 w-14 text-purple-500/30" />
+        <Lock className="h-14 w-14 text-blue-500/40" />
       </motion.div>
 
       <motion.div
@@ -112,7 +67,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Database className="h-10 w-10 text-purple-500/30" />
+        <Database className="h-10 w-10 text-blue-400/40" />
       </motion.div>
 
       <motion.div
@@ -127,7 +82,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Server className="h-12 w-12 text-purple-500/30" />
+        <Server className="h-12 w-12 text-blue-500/40" />
       </motion.div>
 
       <motion.div
@@ -142,7 +97,7 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Terminal className="h-16 w-16 text-purple-500/30" />
+        <Terminal className="h-16 w-16 text-blue-400/40" />
       </motion.div>
 
       <motion.div
@@ -157,7 +112,22 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <Brain className="h-14 w-14 text-purple-500/30" />
+        <Brain className="h-14 w-14 text-blue-500/40" />
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-1/5 right-1/5"
+        animate={{
+          y: [0, 12, 0],
+          rotate: [0, 8, 0],
+        }}
+        transition={{
+          duration: 4.2,
+          repeat: Number.POSITIVE_INFINITY,
+          repeatType: "reverse",
+        }}
+      >
+        <Search className="h-12 w-12 text-blue-400/40" />
       </motion.div>
 
       {/* Hero content */}
@@ -171,10 +141,10 @@ export default function HeroSection() {
             <img
               src="/images/profile.png"
               alt="Nawin Prasath"
-              className="w-32 h-32 rounded-full border-4 border-purple-500 p-1 shadow-lg shadow-purple-500/20 purple-glow"
+              className="w-32 h-32 rounded-full border-4 border-blue-500 p-1 shadow-blue-glow bg-white"
             />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
             Nawin Prasath K
           </h1>
         </motion.div>
@@ -197,13 +167,13 @@ export default function HeroSection() {
               1000,
               "Full-Stack Developer",
               1000,
-              "NICC Coordinator",
+              "Security Researcher",
               1000,
             ]}
             wrapper="h2"
             speed={50}
             repeat={Number.POSITIVE_INFINITY}
-            className="text-2xl md:text-3xl font-medium text-purple-500"
+            className="text-2xl md:text-3xl font-medium text-blue-600"
           />
         </motion.div>
 
@@ -212,8 +182,8 @@ export default function HeroSection() {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Transforming cybersecurity with AI innovation and crafting intelligent, responsive applications that solve
+          <p className="text-lg md:text-xl text-slate-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Transforming cybersecurity with AI innovation and crafting intelligent, secure applications that solve
             real-world challenges
           </p>
         </motion.div>
@@ -224,18 +194,14 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button
-            asChild
-            size="lg"
-            className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 border-none shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300"
-          >
+          <Button asChild size="lg" className="btn-professional">
             <Link href="#projects">View Projects</Link>
           </Button>
           <Button
             asChild
             size="lg"
             variant="outline"
-            className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-300"
+            className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
           >
             <Link href="#contact">Contact Me</Link>
           </Button>
@@ -243,7 +209,7 @@ export default function HeroSection() {
             asChild
             size="lg"
             variant="outline"
-            className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-300"
+            className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
           >
             <Link href="/resume">Resume</Link>
           </Button>
@@ -266,7 +232,7 @@ export default function HeroSection() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-gray-400"
+          className="text-slate-500"
         >
           <path d="M12 5v14"></path>
           <path d="m19 12-7 7-7-7"></path>

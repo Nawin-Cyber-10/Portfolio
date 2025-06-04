@@ -14,26 +14,26 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, description, tags, icon, link }: ProjectCardProps) {
   return (
-    <Card className="bg-gray-800 border-gray-700 overflow-hidden group hover:border-emerald-500 transition-all duration-300">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+    <Card className="bg-white border-slate-200 overflow-hidden group hover:border-blue-300 transition-all duration-300 card-hover shadow-sm">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-700 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
       <CardHeader className="flex flex-row items-center gap-4">
-        <div className="bg-gray-900 p-3 rounded-lg">{icon}</div>
+        <div className="bg-blue-50 p-3 rounded-lg group-hover:bg-blue-100 transition-colors duration-300">{icon}</div>
         <div>
-          <CardTitle className="text-xl">{title}</CardTitle>
+          <CardTitle className="text-xl text-slate-800">{title}</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-300 mb-4">{description}</p>
+        <p className="text-slate-700 mb-4 leading-relaxed">{description}</p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
-            <Badge key={index} variant="outline" className="border-emerald-500/50 text-emerald-400">
+            <Badge key={index} variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">
               {tag}
             </Badge>
           ))}
         </div>
       </CardContent>
       <CardFooter>
-        <Button asChild variant="ghost" className="text-emerald-500 hover:text-emerald-400 hover:bg-emerald-500/10 p-0">
+        <Button asChild variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 p-0">
           <a href={link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
             View Project <ExternalLink className="h-4 w-4" />
           </a>
