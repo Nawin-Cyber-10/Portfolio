@@ -7,38 +7,46 @@ export default function AchievementsTimeline() {
   const achievements = [
     {
       year: "2025",
-      title: "Cyber Security Awareness",
+      title: "Cyber Security Awareness Excellence",
       organization: "SKIN FORUM",
-      icon: <Award className="h-6 w-6 text-blue-600" />,
-      description: "Recognized for contributions to cyber security awareness initiatives.",
+      icon: <Award className="h-6 w-6 text-primary" />,
+      description:
+        "Recognized for outstanding contributions to national cybersecurity awareness and digital forensics education initiatives.",
+      classification: "Commendation",
     },
     {
       year: "2024",
-      title: "Fintech Ideathon Winner",
+      title: "Fintech Security Innovation Champion",
       organization: "CubeAI Solutions",
-      icon: <Trophy className="h-6 w-6 text-blue-600" />,
-      description: "First place in the Fintech Ideathon for innovative AI-powered security solution.",
+      icon: <Trophy className="h-6 w-6 text-primary" />,
+      description:
+        "First place in advanced Fintech security challenge for developing AI-powered threat detection and forensic analysis system.",
+      classification: "Victory",
     },
     {
       year: "2024",
-      title: "Top 10 in National Collegiate CTF",
+      title: "Elite Cyber Defense Recognition",
       organization: "National Cyber League",
-      icon: <Star className="h-6 w-6 text-blue-600" />,
-      description: "Led college team to a top 10 finish among 200+ participating teams.",
+      icon: <Star className="h-6 w-6 text-primary" />,
+      description:
+        "Led elite cyber defense team to top 10 finish among 200+ participating units in national collegiate cyber warfare championship.",
+      classification: "Tactical Success",
     },
     {
       year: "2023",
-      title: "ISO/IEC 27001 Certification",
+      title: "Information Security Management Certification",
       organization: "SkillFront",
-      icon: <Certificate className="h-6 w-6 text-blue-600" />,
-      description: "Obtained professional certification in information security management systems.",
+      icon: <Certificate className="h-6 w-6 text-primary" />,
+      description:
+        "Obtained advanced professional certification in ISO/IEC 27001 information security management systems and forensic protocols.",
+      classification: "Credentials",
     },
   ]
 
   return (
     <div className="relative">
-      {/* Vertical line */}
-      <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-blue-700 transform md:translate-x-px"></div>
+      {/* Vertical timeline line */}
+      <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/30 transform md:translate-x-px professional-glow"></div>
 
       <div className="space-y-12">
         {achievements.map((achievement, index) => (
@@ -52,34 +60,31 @@ export default function AchievementsTimeline() {
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             } items-center md:items-start gap-8`}
           >
-            {/* Timeline dot */}
-            <div className="absolute left-0 md:left-1/2 w-5 h-5 bg-blue-600 rounded-full transform -translate-x-2 md:-translate-x-2.5 z-10 shadow-blue-glow"></div>
+            {/* Timeline marker */}
+            <div className="absolute left-0 md:left-1/2 w-5 h-5 bg-primary rounded-full transform -translate-x-2 md:-translate-x-2.5 z-10 professional-glow pulse-glow"></div>
 
-            {/* Year bubble - always on the line for mobile, alternating sides for desktop */}
+            {/* Year badge */}
             <div className="absolute left-6 md:static md:flex-none md:w-1/2 flex md:justify-center">
-              <div
-                className={`bg-white border border-blue-200 text-blue-600 font-bold py-1 px-3 rounded-full inline-block shadow-sm ${
-                  index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                }`}
-              >
-                {achievement.year}
+              <div className={`detective-card p-3 rounded-lg inline-block ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}>
+                <span className="font-bold text-primary">{achievement.year}</span>
               </div>
             </div>
 
-            {/* Content card - full width on mobile, half width alternating sides on desktop */}
+            {/* Achievement card */}
             <div
-              className={`bg-white border border-slate-200 p-6 rounded-lg w-full md:w-1/2 ml-8 md:ml-0 ${
+              className={`detective-card p-6 rounded-xl w-full md:w-1/2 ml-8 md:ml-0 ${
                 index % 2 === 0 ? "md:ml-8" : "md:mr-8"
-              } hover:border-blue-300 transition-all duration-300 card-hover shadow-sm`}
+              } group`}
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="bg-blue-50 p-2 rounded-lg">{achievement.icon}</div>
+                <div className="bg-secondary p-2 rounded-lg tool-icon">{achievement.icon}</div>
                 <div>
-                  <h3 className="font-bold text-lg text-slate-800">{achievement.title}</h3>
-                  <p className="text-sm text-slate-600">{achievement.organization}</p>
+                  <h3 className="font-bold text-lg">{achievement.title}</h3>
+                  <p className="text-sm text-muted-foreground">{achievement.organization}</p>
+                  <div className="evidence-badge mt-1">{achievement.classification}</div>
                 </div>
               </div>
-              <p className="text-slate-700">{achievement.description}</p>
+              <p className="text-muted-foreground">{achievement.description}</p>
             </div>
           </motion.div>
         ))}

@@ -1,61 +1,53 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Code, Cloud, Network, FileCode, Lock, Search, Database, Server, Brain } from "lucide-react"
+import { Shield, Code, Search, Database, Terminal, Eye, Fingerprint, Zap, HardDrive, Network } from "lucide-react"
 
 export default function SkillsSection() {
   const skillCategories = [
     {
+      title: "Digital Forensics",
+      icon: <Eye className="h-6 w-6 text-primary" />,
+      skills: ["Autopsy", "FTK (Forensic Toolkit)", "Sleuth Kit", "Volatility", "X-Ways Forensics"],
+    },
+    {
+      title: "Penetration Testing",
+      icon: <Shield className="h-6 w-6 text-primary" />,
+      skills: ["Burp Suite Professional", "OWASP ZAP", "Metasploit", "Nmap", "Wireshark"],
+    },
+    {
       title: "AI & Machine Learning",
-      icon: <Brain className="h-6 w-6 text-blue-600" />,
-      skills: ["AI Prompting", "Prompt Engineering", "Machine Learning", "AI Web Development", "LLM Integration"],
+      icon: <Database className="h-6 w-6 text-primary" />,
+      skills: ["AI Threat Detection", "Prompt Engineering", "Machine Learning", "Neural Networks", "TensorFlow"],
     },
     {
-      title: "Cyber Security",
-      icon: <Shield className="h-6 w-6 text-blue-600" />,
-      skills: [
-        "Penetration Testing",
-        "Vulnerability Assessment",
-        "Threat Hunting",
-        "Digital Forensics",
-        "Zero Trust Architecture",
-      ],
+      title: "Malware Analysis",
+      icon: <Search className="h-6 w-6 text-primary" />,
+      skills: ["IDA Pro", "Ghidra", "OllyDbg", "Cuckoo Sandbox", "YARA Rules"],
     },
     {
-      title: "Programming & Development",
-      icon: <Code className="h-6 w-6 text-blue-600" />,
-      skills: ["Python Development", "Full-Stack Development", "JavaScript", "Bash Scripting", "MongoDB"],
+      title: "Network Security",
+      icon: <Network className="h-6 w-6 text-primary" />,
+      skills: ["Packet Analysis", "Network Forensics", "Intrusion Detection", "Traffic Analysis", "Protocol Analysis"],
     },
     {
-      title: "Reconnaissance & Tools",
-      icon: <Search className="h-6 w-6 text-blue-600" />,
-      skills: ["Web Reconnaissance", "Subdomain Enumeration", "Port Scanning", "OSINT", "Automation"],
-    },
-    {
-      title: "Cloud Security",
-      icon: <Cloud className="h-6 w-6 text-blue-600" />,
-      skills: [
-        "GCP Security",
-        "Cloud Infrastructure",
-        "Secure Architecture",
-        "Identity Management",
-        "Container Security",
-      ],
-    },
-    {
-      title: "Compliance & Standards",
-      icon: <FileCode className="h-6 w-6 text-blue-600" />,
-      skills: ["ISO/IEC 27001", "GDPR", "Security Frameworks", "Risk Assessment", "Security Policies"],
+      title: "Programming & Scripting",
+      icon: <Code className="h-6 w-6 text-primary" />,
+      skills: ["Python", "PowerShell", "Bash", "SQL", "JavaScript"],
     },
   ]
 
-  // Skill meter data
-  const advancedSkills = [
-    { name: "AI Prompting & Engineering", level: 95 },
-    { name: "Python Development", level: 90 },
-    { name: "Penetration Testing", level: 88 },
-    { name: "Web Reconnaissance", level: 92 },
-    { name: "Full-Stack Development", level: 85 },
+  const forensicTools = [
+    { name: "Autopsy", icon: <Eye className="h-5 w-5" />, category: "Digital Forensics" },
+    { name: "FTK", icon: <Database className="h-5 w-5" />, category: "Evidence Processing" },
+    { name: "Sleuth Kit", icon: <Terminal className="h-5 w-5" />, category: "CLI Forensics" },
+    { name: "Burp Suite", icon: <Shield className="h-5 w-5" />, category: "Web Security" },
+    { name: "OWASP ZAP", icon: <Zap className="h-5 w-5" />, category: "Vulnerability Assessment" },
+    { name: "Volatility", icon: <HardDrive className="h-5 w-5" />, category: "Memory Analysis" },
+    { name: "Wireshark", icon: <Network className="h-5 w-5" />, category: "Network Analysis" },
+    { name: "Metasploit", icon: <Terminal className="h-5 w-5" />, category: "Exploitation" },
+    { name: "IDA Pro", icon: <Search className="h-5 w-5" />, category: "Reverse Engineering" },
+    { name: "Ghidra", icon: <Code className="h-5 w-5" />, category: "Malware Analysis" },
   ]
 
   return (
@@ -65,96 +57,216 @@ export default function SkillsSection() {
         {skillCategories.map((category, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.1,
+              type: "spring",
+              stiffness: 100,
+            }}
             viewport={{ once: true }}
-            className="bg-white border border-slate-200 rounded-lg p-6 hover:border-blue-300 transition-all duration-300 group card-hover shadow-sm"
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.2 },
+            }}
+            className="detective-card p-6 rounded-xl group"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-blue-50 p-2 rounded-lg group-hover:bg-blue-100 transition-colors duration-300">
+            <motion.div className="flex items-center gap-3 mb-4" whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+              <div className="bg-secondary p-2 rounded-lg group-hover:bg-primary/10 transition-all duration-300 tool-icon">
                 {category.icon}
               </div>
-              <h3 className="text-xl font-semibold text-slate-800">{category.title}</h3>
-            </div>
+              <h3 className="text-xl font-semibold">{category.title}</h3>
+            </motion.div>
             <ul className="space-y-2">
               {category.skills.map((skill, skillIndex) => (
-                <li key={skillIndex} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
-                  <span className="text-slate-700">{skill}</span>
-                </li>
+                <motion.li
+                  key={skillIndex}
+                  className="flex items-center gap-2"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.span
+                    className="h-1.5 w-1.5 rounded-full bg-primary"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: skillIndex * 0.2 }}
+                  />
+                  <span className="text-muted-foreground text-sm">{skill}</span>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
         ))}
       </div>
 
-      {/* Skill Meters */}
+      {/* Forensic Tools Arsenal */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm"
-      >
-        <h3 className="text-xl font-semibold mb-6 text-center text-slate-800">Advanced Proficiencies</h3>
-        <div className="space-y-6">
-          {advancedSkills.map((skill, index) => (
-            <div key={index} className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-slate-800 font-medium">{skill.name}</span>
-                <span className="text-blue-600 font-semibold">{skill.level}%</span>
-              </div>
-              <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full"
-                ></motion.div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Tools Grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8, type: "spring", stiffness: 50 }}
         viewport={{ once: true }}
-        className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm"
+        className="detective-card p-8 rounded-xl"
       >
-        <h3 className="text-xl font-semibold mb-6 text-center text-slate-800">Tools & Technologies</h3>
+        <motion.h3
+          className="text-2xl font-semibold mb-8 text-center gradient-text"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Professional Tools Arsenal
+        </motion.h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {[
-            { name: "Python", icon: <Code className="h-5 w-5" /> },
-            { name: "Burp Suite", icon: <Search className="h-5 w-5" /> },
-            { name: "Nmap", icon: <Network className="h-5 w-5" /> },
-            { name: "Metasploit", icon: <Shield className="h-5 w-5" /> },
-            { name: "Wireshark", icon: <Network className="h-5 w-5" /> },
-            { name: "OWASP ZAP", icon: <Lock className="h-5 w-5" /> },
-            { name: "Nessus", icon: <Search className="h-5 w-5" /> },
-            { name: "MongoDB", icon: <Database className="h-5 w-5" /> },
-            { name: "React", icon: <Code className="h-5 w-5" /> },
-            { name: "Node.js", icon: <Server className="h-5 w-5" /> },
-          ].map((tool, index) => (
+          {forensicTools.map((tool, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+              whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+                type: "spring",
+                stiffness: 100,
+              }}
               viewport={{ once: true }}
-              className="bg-slate-50 p-3 rounded-lg text-center flex flex-col items-center gap-2 hover:bg-blue-50 transition-colors duration-300 hover:border-blue-200 border border-transparent"
+              whileHover={{
+                scale: 1.05,
+                rotateY: 5,
+                transition: { duration: 0.2 },
+              }}
+              className="bg-secondary p-4 rounded-xl text-center flex flex-col items-center gap-3 hover:bg-primary/10 transition-all duration-300 border border-primary/20 group tool-icon cursor-pointer"
             >
-              <div className="text-blue-600">{tool.icon}</div>
-              <span className="text-sm text-slate-700">{tool.name}</span>
+              <motion.div
+                className="text-primary group-hover:text-primary transition-colors duration-300"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                {tool.icon}
+              </motion.div>
+              <span className="text-sm font-medium">{tool.name}</span>
+              <motion.div className="evidence-badge text-xs" whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
+                {tool.category}
+              </motion.div>
             </motion.div>
           ))}
         </div>
       </motion.div>
+
+      {/* Investigation Specializations */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0, x: -100, rotateX: 45 }}
+          whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 50 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02, rotateX: 2 }}
+          className="detective-card p-6 rounded-xl"
+        >
+          <motion.h4
+            className="text-lg font-bold mb-4 flex items-center gap-2"
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Fingerprint className="h-5 w-5 text-primary" />
+            Digital Evidence
+          </motion.h4>
+          <ul className="space-y-2 text-muted-foreground text-sm">
+            {[
+              "File system forensics",
+              "Deleted data recovery",
+              "Metadata analysis",
+              "Timeline reconstruction",
+              "Hash verification",
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                • {item}
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 100, rotateX: 45 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 50 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02, rotateX: 2 }}
+          className="detective-card p-6 rounded-xl"
+        >
+          <motion.h4
+            className="text-lg font-bold mb-4 flex items-center gap-2"
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Search className="h-5 w-5 text-primary" />
+            Threat Hunting
+          </motion.h4>
+          <ul className="space-y-2 text-muted-foreground text-sm">
+            {[
+              "Advanced persistent threats",
+              "Behavioral analysis",
+              "IOC development",
+              "Threat intelligence",
+              "Attack pattern recognition",
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 + index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                • {item}
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 100, rotateX: 45 }}
+          whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 50 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02, rotateX: 2 }}
+          className="detective-card p-6 rounded-xl"
+        >
+          <motion.h4
+            className="text-lg font-bold mb-4 flex items-center gap-2"
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Terminal className="h-5 w-5 text-primary" />
+            Incident Response
+          </motion.h4>
+          <ul className="space-y-2 text-muted-foreground text-sm">
+            {[
+              "Rapid containment",
+              "Evidence preservation",
+              "Root cause analysis",
+              "Recovery procedures",
+              "Post-incident reporting",
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 + index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                • {item}
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
     </div>
   )
 }

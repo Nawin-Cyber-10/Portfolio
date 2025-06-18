@@ -3,36 +3,39 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Terminal, Flag, Code, Database, Lock, Search } from "lucide-react"
+import { Terminal, Flag, Code, Database, Lock, Search, Shield } from "lucide-react"
 
 export default function CTFSection() {
   const ctfCategories = [
     {
       name: "Web Exploitation",
-      icon: <Code className="h-5 w-5 text-blue-600" />,
+      icon: <Code className="h-5 w-5 text-primary" />,
       description:
-        "Finding and exploiting vulnerabilities in web applications, including SQL injection, XSS, and CSRF attacks.",
+        "Advanced web application penetration testing including SQL injection, XSS, CSRF, and authentication bypass techniques.",
     },
     {
       name: "Cryptography",
-      icon: <Lock className="h-5 w-5 text-blue-600" />,
-      description: "Breaking cryptographic algorithms, decoding ciphers, and solving encryption challenges.",
+      icon: <Lock className="h-5 w-5 text-primary" />,
+      description:
+        "Breaking cryptographic implementations, analyzing cipher weaknesses, and developing cryptanalysis solutions.",
     },
     {
-      name: "Forensics",
-      icon: <Search className="h-5 w-5 text-blue-600" />,
-      description: "Analyzing digital evidence, recovering deleted data, and extracting hidden information from files.",
+      name: "Digital Forensics",
+      icon: <Search className="h-5 w-5 text-primary" />,
+      description:
+        "Evidence recovery, timeline analysis, memory forensics, and digital artifact examination using professional tools.",
     },
     {
       name: "Binary Exploitation",
-      icon: <Terminal className="h-5 w-5 text-blue-600" />,
+      icon: <Terminal className="h-5 w-5 text-primary" />,
       description:
-        "Exploiting vulnerabilities in binary applications, including buffer overflows and return-oriented programming.",
+        "Advanced exploitation techniques including buffer overflows, ROP chains, and modern exploit mitigation bypass.",
     },
     {
       name: "Reverse Engineering",
-      icon: <Database className="h-5 w-5 text-blue-600" />,
-      description: "Analyzing and understanding compiled code to determine functionality and find vulnerabilities.",
+      icon: <Database className="h-5 w-5 text-primary" />,
+      description:
+        "Malware analysis, binary disassembly, and understanding complex software architectures and obfuscation techniques.",
     },
   ]
 
@@ -45,44 +48,43 @@ export default function CTFSection() {
         viewport={{ once: true }}
         className="lg:col-span-1"
       >
-        <Card className="bg-white border-slate-200 h-full hover:border-blue-300 transition-all duration-300 card-hover shadow-sm">
+        <Card className="detective-card h-full">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
-              <Flag className="h-6 w-6 text-blue-600" />
-              <CardTitle className="text-slate-800">CTF Team Leader</CardTitle>
+              <Flag className="h-6 w-6 text-primary" />
+              <CardTitle>Tactical Operations Commander</CardTitle>
             </div>
-            <CardDescription className="text-slate-600">
-              Leading and training the college's Capture The Flag team
-            </CardDescription>
+            <CardDescription>Elite Cyber Warfare Unit</CardDescription>
+            <div className="evidence-badge">Classified Operations</div>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p className="text-slate-700">
-              As the CTF team leader, I organize training sessions, develop practice challenges, and lead our team in
-              national and international competitions. Our focus areas include:
+            <p className="text-muted-foreground">
+              Leading advanced cyber warfare simulations and penetration testing operations. Commanding elite teams in
+              sophisticated attack scenarios and conducting digital forensic investigations.
             </p>
 
             <div className="flex flex-wrap gap-2">
               {ctfCategories.map((category, index) => (
-                <Badge key={index} variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">
+                <Badge key={index} variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-xs">
                   {category.name}
                 </Badge>
               ))}
             </div>
 
             <div className="pt-4">
-              <h4 className="font-semibold mb-2 text-slate-800">Notable Achievements:</h4>
-              <ul className="space-y-2 text-slate-700">
+              <h4 className="font-semibold mb-2">Mission Accomplishments:</h4>
+              <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span>Top 10 finish in National Collegiate CTF 2024</span>
+                  <span className="text-primary mt-1">▶</span>
+                  <span>Top 10 finish in National Collegiate Cyber Defense Championship</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span>1st place in Regional Cyber Security Challenge</span>
+                  <span className="text-primary mt-1">▶</span>
+                  <span>1st place in Regional Advanced Persistent Threat Simulation</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span>Qualified for international CTF finals</span>
+                  <span className="text-primary mt-1">▶</span>
+                  <span>Qualified for International Cyber Warfare Finals</span>
                 </li>
               </ul>
             </div>
@@ -97,12 +99,10 @@ export default function CTFSection() {
         viewport={{ once: true }}
         className="lg:col-span-2"
       >
-        <Card className="bg-white border-slate-200 h-full hover:border-blue-300 transition-all duration-300 shadow-sm">
+        <Card className="detective-card h-full">
           <CardHeader>
-            <CardTitle className="text-slate-800">CTF Categories & Training</CardTitle>
-            <CardDescription className="text-slate-600">
-              Specialized areas of focus in our CTF training program
-            </CardDescription>
+            <CardTitle>Tactical Specializations</CardTitle>
+            <CardDescription>Advanced cyber warfare domains and operational expertise</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -113,37 +113,37 @@ export default function CTFSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-slate-50 p-4 rounded-lg border border-slate-200 hover:border-blue-200 transition-all duration-300"
+                  className="bg-secondary p-4 rounded-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 group"
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    {category.icon}
-                    <h4 className="font-semibold text-slate-800">{category.name}</h4>
+                    <div className="tool-icon">{category.icon}</div>
+                    <h4 className="font-semibold">{category.name}</h4>
                   </div>
-                  <p className="text-slate-700 text-sm">{category.description}</p>
+                  <p className="text-muted-foreground text-sm">{category.description}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-8 p-4 bg-slate-50 rounded-lg border border-slate-200">
-              <h4 className="font-semibold mb-3 flex items-center gap-2 text-slate-800">
-                <Terminal className="h-5 w-5 text-blue-600" />
-                Training Methodology
+            <div className="mt-8 p-6 bg-secondary rounded-xl border border-primary/20">
+              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                <Shield className="h-5 w-5 text-primary" />
+                Operational Methodology
               </h4>
-              <p className="text-slate-700 mb-4">
-                Our training combines theoretical knowledge with hands-on practice in a structured learning environment:
+              <p className="text-muted-foreground mb-4">
+                Advanced tactical training combining theoretical knowledge with real-world simulation environments:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white p-3 rounded-lg text-center border border-slate-200">
-                  <span className="block text-blue-600 font-bold text-lg mb-1">01</span>
-                  <span className="text-sm text-slate-700">Fundamentals & Theory</span>
+                <div className="bg-background p-4 rounded-lg text-center border border-primary/20">
+                  <span className="block text-primary font-bold text-lg mb-1">Phase 01</span>
+                  <span className="text-sm text-muted-foreground">Reconnaissance & Intelligence</span>
                 </div>
-                <div className="bg-white p-3 rounded-lg text-center border border-slate-200">
-                  <span className="block text-blue-600 font-bold text-lg mb-1">02</span>
-                  <span className="text-sm text-slate-700">Guided Practice</span>
+                <div className="bg-background p-4 rounded-lg text-center border border-primary/20">
+                  <span className="block text-primary font-bold text-lg mb-1">Phase 02</span>
+                  <span className="text-sm text-muted-foreground">Exploitation & Infiltration</span>
                 </div>
-                <div className="bg-white p-3 rounded-lg text-center border border-slate-200">
-                  <span className="block text-blue-600 font-bold text-lg mb-1">03</span>
-                  <span className="text-sm text-slate-700">Competition Simulation</span>
+                <div className="bg-background p-4 rounded-lg text-center border border-primary/20">
+                  <span className="block text-primary font-bold text-lg mb-1">Phase 03</span>
+                  <span className="text-sm text-muted-foreground">Evidence Analysis & Reporting</span>
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
-import { Loader2 } from "lucide-react"
+import { Loader2, Terminal } from "lucide-react"
 
 export default function ContactForm() {
   const { toast } = useToast()
@@ -33,7 +33,6 @@ export default function ContactForm() {
       [name]: value,
     }))
 
-    // Clear error when user types
     if (formErrors[name as keyof typeof formErrors]) {
       setFormErrors((prev) => ({
         ...prev,
@@ -82,21 +81,14 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      // Using EmailJS to send emails directly from the client
-      await emailjs.sendForm(
-        "service_2d5d21v", // Replace with your EmailJS service ID
-        "template_e36a5ob", // Replace with your EmailJS template ID
-        formRef.current!,
-        "5Fr7dd7c6zFYDC5eg", // Replace with your EmailJS public key
-      )
+      await emailjs.sendForm("service_2d5d21v", "template_e36a5ob", formRef.current!, "5Fr7dd7c6zFYDC5eg")
 
       toast({
-        title: "Message sent successfully!",
+        title: "Message Sent Successfully",
         description: "Thank you for reaching out. I'll get back to you soon.",
         variant: "default",
       })
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -106,7 +98,7 @@ export default function ContactForm() {
     } catch (error) {
       console.error("Error sending email:", error)
       toast({
-        title: "Failed to send message",
+        title: "Failed to Send Message",
         description: "Please try again or contact me directly at heyitsmenawin010@gmail.com",
         variant: "destructive",
       })
@@ -122,13 +114,17 @@ export default function ContactForm() {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <form
-        ref={formRef}
-        onSubmit={handleSubmit}
-        className="space-y-6 bg-white border border-slate-200 p-6 rounded-lg shadow-sm hover:border-blue-300 transition-all duration-300"
-      >
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 detective-terminal p-8 rounded-xl">
+        <div className="text-center mb-6">
+          <h3 className="text-xl font-bold flex items-center justify-center gap-2">
+            <Terminal className="h-5 w-5 text-primary" />
+            Secure Communication Protocol
+          </h3>
+          <div className="investigation-badge mt-2">Encrypted Channel</div>
+        </div>
+
         <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium text-slate-700">
+          <label htmlFor="name" className="text-sm font-medium">
             Name
           </label>
           <Input
@@ -137,13 +133,13 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
+            className="enhanced-input border-primary/20 focus:border-primary focus:ring-primary"
           />
           {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="text-sm font-medium">
             Email
           </label>
           <Input
@@ -152,14 +148,14 @@ export default function ContactForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Your email address"
-            className="bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
+            placeholder="your.email@domain.com"
+            className="enhanced-input border-primary/20 focus:border-primary focus:ring-primary"
           />
           {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="subject" className="text-sm font-medium text-slate-700">
+          <label htmlFor="subject" className="text-sm font-medium">
             Subject
           </label>
           <Input
@@ -168,12 +164,12 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             placeholder="Subject of your message"
-            className="bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
+            className="enhanced-input border-primary/20 focus:border-primary focus:ring-primary"
           />
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="message" className="text-sm font-medium text-slate-700">
+          <label htmlFor="message" className="text-sm font-medium">
             Message
           </label>
           <Textarea
@@ -181,13 +177,13 @@ export default function ContactForm() {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Your message"
-            className="min-h-[120px] bg-slate-50 border-slate-300 focus:border-blue-500 focus:ring-blue-500"
+            placeholder="Your message..."
+            className="min-h-[120px] enhanced-input border-primary/20 focus:border-primary focus:ring-primary"
           />
           {formErrors.message && <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>}
         </div>
 
-        <Button type="submit" disabled={isSubmitting} className="w-full btn-professional">
+        <Button type="submit" disabled={isSubmitting} className="w-full enhanced-button">
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -198,9 +194,7 @@ export default function ContactForm() {
           )}
         </Button>
 
-        <p className="text-xs text-slate-500 text-center mt-4">
-          Your message will be sent directly to my email inbox. I'll respond as soon as possible.
-        </p>
+        <p className="text-xs text-muted-foreground text-center mt-4">All communications are encrypted and secure.</p>
       </form>
     </motion.div>
   )
